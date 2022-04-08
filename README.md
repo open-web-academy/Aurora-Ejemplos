@@ -1,19 +1,15 @@
-# Aurora-Examples
+# Ejemplos de contratos para Aurora
 
-This repository includes DApp boilerplates for [truffle](https://www.trufflesuite.com/) and [hardhat](https://hardhat.org/) examples on Aurora. These examples cover specific topics:
-- Solidity contract deployment using (Truffle/Hardhat).
-- Integration with Metamask
-- Running DApp on Aurora network
+Contratos básicos de DApps desarrolladas usando [hardhat](https://hardhat.org/) y listas para desplegar en Aurora. 
+Estos ejemplos contienen:
+- Contratos desarrollados en Solidity usando Hardhat.
+- Integración con la wallet Metamask.
+- Deploy en la red de Aurora.
+- Frontend para interactuar con los contratos.
 
-## Prerequisites
+## Pre-requisitos
 - Node 12+
 
-## Examples
-- [Truffle](truffle/)
-- [Hardhat](hardhat/)
-
-More documentation about Aurora network can be found [here](https://doc.aurora.dev/develop/networks).
-
-## Contributing
-Aurora team welcomes any kind of contributions in form of bug issues, feature requests, code changes, or documentation enhancement.
-
+## Información adicional
+Para instalar aurora-cli ejecute: ```npm install -g @auroraisnear/cli```
+Puede encontrar documentación sobre Aurora [aquí](https://doc.aurora.dev/develop/networks).
