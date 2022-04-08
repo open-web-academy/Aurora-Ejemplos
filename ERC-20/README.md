@@ -240,4 +240,4 @@ En este tutorial, implementamos un token ERC-20 usando HardHat en la testnet de 
 Aprobamos u transferimos los tokens ERC-20.
 Añadimos otras tareas como obtener el suministro total y el saldo de la cuenta.
 Como se pudo observar la única diferencia a deployar en Ethereum MainNet es hacer el 
-cambio al Aurora RPC endpoint.
+cambio al Aurora RPC endpoint en el archivo `hardhat.config.js`.
