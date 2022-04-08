@@ -11,5 +11,9 @@ Estos ejemplos contienen:
 - Node 12+
 
 ## Información adicional
-Para instalar aurora-cli ejecute: ```npm install -g @auroraisnear/cli```
+Para instalar aurora-cli ejecute: 
+```bash 
+npm install -g @auroraisnear/cli
+```
+
 Puede encontrar documentación sobre Aurora [aquí](https://doc.aurora.dev/develop/networks).
