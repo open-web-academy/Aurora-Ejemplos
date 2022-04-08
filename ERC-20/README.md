@@ -1,7 +1,3 @@
----
-título: "Aurora: Introducción a Hardhat"
----
-
 ## Introducción
 
 El objetivo principal de este tutorial es mostrar cómo implementar e interactuar con
