@@ -6,6 +6,7 @@ está familiarizado con `HardHat` y los tokens ERC-20. Para más detalles sobre
 el estándar de token fungible, consulte
 la [Especificación estándar ERC-20] (https://eips.ethereum.org/EIPS/eip-20).
 
+
 ## Instalación
 
 Este tutorial asume que tiene Node.js 12+ y Yarn. Por favor vaya a [Cómo instalar Yarn](https://classic.yarnpkg.com/en/docs/install#mac-stable)
@@ -25,6 +26,7 @@ luego ejecute yarn: <br/>
 echo "AURORA_CLAVE_PRIVADA=TU_AURORA_CLAVE_PRIVADA_AQUÍ" >> .env
 instalación de yarn
 ```
+
 
 ## Implementar ERC-20
 
@@ -47,6 +49,7 @@ WatermelonToken deployed to: 0xD7f2A76F5DA173043E6c61a0A18D835809A07766
 $ export TOKEN_ADDRESS='YOUR OUTPUT FROM DEPLOY (e.g. 0xD7f2A76F5DA173043E6c61a0A18D835809A07766)'
 ```
 
+
 ## HardHat
 
 Las tareas HardHat se encargan de analizar los valores proporcionados para cada parámetro.
@@ -55,6 +58,7 @@ Obtiene los valores, realiza la validación de tipo y los convierte en el tipo d
 En este ejemplo, revisaremos un conjunto de tareas HardHat predefinidas
 que utiliza HardHat Runtime Environment ([HRE](https://hardhat.org/advanced/hardhat-runtime-environment.html)). Para completar el tutorial,
 debes usarlos en el mismo orden:
+
 
 ### Saldo ETH
 
@@ -81,6 +85,7 @@ npx hardhat balance --network testnet_aurora --account 0x6A33382de9f73B846878a57
 Debería notar que `--network` es una opción integrada global (parámetro)
 en HardHat. También lo usaremos para los siguientes comandos.
 
+
 ### Suministro total
 
 El siguiente script de tarea obtiene el suministro total del token Watermelon ERC-20.
@@ -106,6 +111,7 @@ Para obtener `totalSupply`, use el siguiente comando:
 $ npx hardhat totalSupply --token $TOKEN_ADDRESS --network testnet_aurora
 Total Supply is 1000000
 ```
+
 
 ### Transferir ERC-20
 
@@ -134,6 +140,7 @@ $ npx hardhat transfer --token $TOKEN_ADDRESS --amount 10 --spender 0x2531a4D108
 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 has transferred 10 tokens to 0x2531a4D108619a20ACeE88C4354a50e9aC48ecfe
 ```
 
+
 ### Saldo de ERC-20
 
 Podemos probar que el "gastador" o "spender" ha recibido la cantidad exacta de fichas
@@ -159,7 +166,8 @@ $ npx hardhat balanceOf --token $TOKEN_ADDRESS --account 0x6A33382de9f73B846878a
 Account 0x6A33382de9f73B846878a57500d055B981229ac4 has a total token balance:  999970 WTM
 ```
 
-### approve ERC-20
+
+### Aprobar ERC-20
 
 En algunos casos, en lugar de llamar a `transfer` directamente, el remitente
 puede approve una cantidad específica de tokens para ser retirados de su cuenta
@@ -189,7 +197,8 @@ npx hardhat approve --token $TOKEN_ADDRESS --spender 0x8722C88e82AbCC639148Ab612
 0x6A33382de9f73B846878a57500d055B981229ac4 has approved 10 tokens to 0x8722C88e82AbCC639148Ab6128Cd63333B2Ad771
 ```
 
-### Transferir desde ERC-20
+
+### TransferFrom de ERC-20
 
 Después de aprobar los tokens, un destinatario puede llamar a `transferFrom` para mover
 la "allowance" a su cuenta.
@@ -223,6 +232,7 @@ Comprobando el saldo de `0x8722C88e82AbCC639148Ab6128Cd63333B2Ad771`:
 npx hardhat balanceOf --token $TOKEN_ADDRESS --account 0x8722C88e82AbCC639148Ab6128Cd63333B2Ad771  --network testnet_aurora
 Account 0x8722C88e82AbCC639148Ab6128Cd63333B2Ad771 has a total token balance:  10 WTM
 ```
+
 
 ## Conclusión
 
