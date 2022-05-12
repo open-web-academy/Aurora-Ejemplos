@@ -139,8 +139,7 @@ contract Marketplace {
                 actualOwner: msg.sender,
                 duration: _duration,
                 buyMoment: block.timestamp,
-                sold: false,
-                onDispute: false
+                sold: false
             });
             totalServices += 1;
         }
@@ -182,9 +181,6 @@ contract Marketplace {
         // Verify that is the service owner
         require(service.actualOwner == msg.sender, "The service isn't your");
 
-        // Verify that the service isn't on service
-        require(service.onDispute == false, "You already requested a service");
-
         // Modify the service data
         service.sold = false;
         service.actualOwner = msg.sender;
@@ -209,12 +205,6 @@ contract Marketplace {
         // Verify that the service was buyed
         require(service.actualOwner == msg.sender, "You don't peosee the indicated service");
 
-        // Verify that the service isn't on service
-        require(service.onDispute == false, "The employeer requested a service");
-
-        // Modify the service data
-        service.onDispute == true;
-
         // TODO pay tokens according the desired jury amount 
 
         emit newDispute(_id, msg.sender, service.creatorId);
@@ -235,8 +225,6 @@ contract Marketplace {
 
         // Verify that the service was sold
         require(service.actualOwner != service.creatorId, "The service isn't was sold");
-        // Verify that the service isn't on service
-        require(service.onDispute == false, "The employeer requested a dispute");
 
         // Modify the service data
         service.sold = false;
@@ -297,15 +285,14 @@ contract Marketplace {
      *  @return creator and actual owner, times and bools.
      */
     function getServiceById(uint64 _id) 
-        public view returns(address, address, uint16, uint, bool, bool) 
+        public view returns(address, address, uint16, uint, bool) 
         {
         return (
             services[_id].creatorId, 
             services[_id].actualOwner, 
             services[_id].duration, 
             services[_id].buyMoment, 
-            services[_id].sold,
-            services[_id].onDispute
+            services[_id].sold
         );
     }
 
