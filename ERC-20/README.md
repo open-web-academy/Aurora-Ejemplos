@@ -42,7 +42,7 @@ yarn hardat run scripts/deploy.js --network testnet_aurora
 yarn run v1.22.10
 Deploying contracts with the account: 0x6A33382de9f73B846878a57500d055B981229ac4
 Account balance: 2210010200000000000
-WatermelonToken deployed to: 0xD7f2A76F5DA173043E6c61a0A18D835809A07766
+Market deployed to: 0xD7f2A76F5DA173043E6c61a0A18D835809A07766
 ✨  Done in 14.96s.
 
 # exportar la dirección del token
@@ -97,7 +97,7 @@ ERC-20. El `--token` dirección es la dirección del contrato ERC-20.
 task("totalSupply", "Total supply of ERC-20 token")
 .addParam("token", "Token address")
 .setAction(async function ({ token }, { ethers: { getSigners } }, runSuper) {
-  const watermelonToken = await ethers.getContractFactory("WatermelonToken")
+  const watermelonToken = await ethers.getContractFactory("Market")
   const watermelon = watermelonToken.attach(token)
   const [minter] = await ethers.getSigners();
   const totalSupply = (await (await watermelon.connect(minter)).totalSupply()).toNumber()
@@ -125,7 +125,7 @@ task("transfer", "ERC-20 transfer")
     .addParam("spender", "Spender address")
     .addParam("amount", "Token amount")
     .setAction(async function ({ token, spender, amount }, { ethers: { getSigners } }, runSuper) {
-        const watermelonToken = await ethers.getContractFactory("WatermelonToken")
+        const watermelonToken = await ethers.getContractFactory("Market")
         const watermelon = watermelonToken.attach(token)
         const [minter] = await ethers.getSigners();
         await (await watermelon.connect(minter).transfer(spender, amount)).wait()
@@ -151,7 +151,7 @@ task("balanceOf", "Total supply of ERC-20 token")
 .addParam("token", "Token address")
 .addParam("account", "Account address")
 .setAction(async function ({ token, account }, { ethers: { getSigners } }, runSuper) {
-  const watermelonToken = await ethers.getContractFactory("WatermelonToken")
+  const watermelonToken = await ethers.getContractFactory("Market")
   const watermelon = watermelonToken.attach(token)
   const [minter] = await ethers.getSigners();
   const balance = (await (await watermelon.connect(minter)).balanceOf(account)).toNumber()
@@ -180,7 +180,7 @@ task("approve", "ERC-20 approve")
     .addParam("spender", "Spender address")
     .addParam("amount", "Token amount")
     .setAction(async function ({ token, spender, amount }, { ethers: { getSigners } }, runSuper) {
-        const watermelonToken = await ethers.getContractFactory("WatermelonToken")
+        const watermelonToken = await ethers.getContractFactory("Market")
         const watermelon = watermelonToken.attach(token)
         const [sender] = await ethers.getSigners();
         await (await watermelon.connect(sender).approve(spender, amount)).wait()
@@ -209,7 +209,7 @@ task("transferFrom", "ERC-20 transferFrom")
     .addParam("sender", "Sender address")
     .addParam("amount", "Token amount")
     .setAction(async function ({ token, sender, amount }, { ethers: { getSigners } }, runSuper) {
-        const watermelonToken = await ethers.getContractFactory("WatermelonToken")
+        const watermelonToken = await ethers.getContractFactory("Market")
         const watermelon = watermelonToken.attach(token)
         const [recipient] = await ethers.getSigners()
         console.log(recipient.address);

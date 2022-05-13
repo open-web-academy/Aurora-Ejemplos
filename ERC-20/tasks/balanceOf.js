@@ -2,7 +2,7 @@ task("balanceOf", "Total supply of ERC20 token")
 .addParam("token", "Token address")
 .addParam("account", "Account address")
 .setAction(async function ({ token, account }, { ethers: { getSigners } }, runSuper) {
-  const watermelonToken = await ethers.getContractFactory("WatermelonToken")
+  const watermelonToken = await ethers.getContractFactory("Market")
   const watermelon = watermelonToken.attach(token)
   const [minter] = await ethers.getSigners();
   const balance = (await (await watermelon.connect(minter)).balanceOf(account)).toNumber()

@@ -5,7 +5,7 @@ task("transfer", "ERC20 transfer")
     .addParam("spender", "Spender address")
     .addParam("amount", "Token amount")
     .setAction(async function ({ token, spender, amount }, { ethers: { getSigners } }, runSuper) {
-        const watermelonToken = await ethers.getContractFactory("WatermelonToken")
+        const watermelonToken = await ethers.getContractFactory("Market")
         const watermelon = watermelonToken.attach(token)
         const [minter] = await ethers.getSigners();
         await (await watermelon.connect(minter).transfer(spender, amount)).wait()

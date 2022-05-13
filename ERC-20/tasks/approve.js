@@ -5,7 +5,7 @@ task("approve", "ERC20 approve")
     .addParam("spender", "Spender address")
     .addParam("amount", "Token amount")
     .setAction(async function ({ token, spender, amount }, { ethers: { getSigners } }, runSuper) {
-        const watermelonToken = await ethers.getContractFactory("WatermelonToken")
+        const watermelonToken = await ethers.getContractFactory("Market")
         const watermelon = watermelonToken.attach(token)
         const [sender] = await ethers.getSigners();
         await (await watermelon.connect(sender).approve(spender, amount)).wait()

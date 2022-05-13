@@ -1,19 +1,15 @@
-# Ejemplos de contratos para Aurora
+# Basic Sample Hardhat Project
 
-Contratos básicos de DApps desarrolladas usando [hardhat](https://hardhat.org/) y listas para desplegar en Aurora. 
-Estos ejemplos contienen:
-- Contratos desarrollados en Solidity usando Hardhat.
-- Integración con la wallet Metamask.
-- Deploy en la red de Aurora.
-- Frontend para interactuar con los contratos.
+This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
-## Pre-requisitos
-- Node 12+
+Try running some of the following tasks:
 
-## Información adicional
-Para instalar aurora-cli ejecute: 
-```bash 
-npm install -g @auroraisnear/cli
+```shell
+npx hardhat accounts
+npx hardhat compile
+npx hardhat clean
+npx hardhat test
+npx hardhat node
+node scripts/sample-script.js
+npx hardhat help
 ```
-
-Puede encontrar documentación sobre Aurora [aquí](https://doc.aurora.dev/develop/networks).
